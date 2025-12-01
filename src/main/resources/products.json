@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Klettergurt Basic",
+    "price": 49.99,
+    "active": true,
+    "category": "sport"
+  },
+  {
+    "id": 2,
+    "name": "Sicherungsggerät Pro",
+    "price": 89.5,
+    "active": false,
+    "category": "Elek"
+  },
+  {
+    "id": 3,
+    "name": "PC-Mac",
+    "price": 600.99,
+    "active": true,
+    "category": "Tech"
+  },
+  {
+    "id": 4,
+    "name": "Laptop",
+    "price": 500.99,
+    "active": false,
+    "category": "Toshiba"
+  }
+]

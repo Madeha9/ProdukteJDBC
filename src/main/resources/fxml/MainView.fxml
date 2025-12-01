@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="MainController">
+
+    <!-- ======= TOP FILTER / BUTTON BAR ======= -->
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Min Price:"/>
+            <TextField fx:id="minPriceField" promptText="z.B. 50"/>
+
+            <CheckBox fx:id="onlyActiveCheck" text="Only Active"/>
+
+            <Button text="Filter anwenden" onAction="#onViewAll"/>
+
+            <!-- Rechts block -->
+            <!--            <HBox spacing="10" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">-->
+            <!--&lt;!&ndash;                <Button text="Import" onAction="#onImport"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <Button text="Refresh" onAction="#onRefresh"/>&ndash;&gt;-->
+            <!--            </HBox>-->
+        </HBox>
+    </top>
+
+    <!-- ======= CENTER TABLE ======= -->
+    <center>
+        <TableView fx:id="tableProducts">
+            <columns>
+
+                <TableColumn fx:id="colId" text="ID" prefWidth="70"/>
+                <TableColumn fx:id="colName" text="Name" prefWidth="200"/>
+                <TableColumn fx:id="colPrice" text="Price" prefWidth="100"/>
+                <TableColumn fx:id="colCategory" text="Category" prefWidth="150"/>
+                <TableColumn fx:id="colActive" text="Active" prefWidth="80"/>
+
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

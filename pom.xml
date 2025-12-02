@@ -4,21 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>dev.madeha</groupId>
     <artifactId>ProdukteJDBC</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>25</maven.compiler.source>
-        <maven.compiler.target>25</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <java.version>25</java.version>
-            <!-- JavaFX runtime version -->
-            <javafx.version>24.0.2</javafx.version>
-            <!-- JavaFX Maven plugin version -->
-            <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
-
+        <java.version>17</java.version>
+        <!-- JavaFX runtime version (17.x for Java 17 compatibility) -->
+        <javafx.version>17.0.14</javafx.version>
+        <!-- JavaFX Maven plugin version -->
+        <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
+        <!-- JUnit version -->
+        <junit.version>5.10.2</junit.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -30,37 +31,61 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.19.2</version>
         </dependency>
-            <!-- JavaFX modules (no classifier -> portable, plugin figures out platform) -->
-            <dependency>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-controls</artifactId>
-                <version>${javafx.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-graphics</artifactId>
-                <version>${javafx.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-base</artifactId>
-                <version>${javafx.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-fxml</artifactId>
-                <version>${javafx.version}</version>
-            </dependency>
-        </dependencies>
+        <!-- JavaFX modules (no classifier -> portable, plugin figures out platform) -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <!-- Java compiler -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
                     <release>${java.version}</release>
                 </configuration>
+            </plugin>
+
+            <!-- Surefire plugin for running tests with JUnit Platform -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+
+            <!-- JAR plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
             </plugin>
 
             <!-- JavaFX Maven Plugin -->
@@ -70,7 +95,6 @@
                 <version>${javafx.maven.plugin.version}</version>
                 <configuration>
                     <!-- Your JavaFX Application class -->
-
                     <!-- Die mainClass wird hier durch die Profile-Properties überschrieben -->
                     <mainClass>App</mainClass>
                 </configuration>

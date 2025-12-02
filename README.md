@@ -1,3 +1,5 @@
+[![Java CI](https://github.com/Madeha9/ProdukteJDBC/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/Madeha9/ProdukteJDBC/actions/workflows/maven.yml)
+
 # ProdukteJDBC – Produkt-Importer & Produkt-Lister 
 
 (Java + JDBC + javaFx für GUI) mit Maven

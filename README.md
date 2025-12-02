@@ -1,9 +1,12 @@
- ProdukteJDBC – Produkt-Importer & Produkt-Lister (Java + JDBC + javaFx für GUI) mit Maven
+# ProdukteJDBC – Produkt-Importer & Produkt-Lister 
+
+(Java + JDBC + javaFx für GUI) mit Maven
  Die Klasse APP ist für JavaFx-GUI geeignet
  Die Klasse ProductImporter ist Main klasse für Produkte
 
  Ein kleines,  Java-Konsolenprojekt zum Importieren, Aktualisieren und Filtern von Produkten über JDBC.
  Unterstützt JSON-Import, Datenbankzugriff, CLI-Parameter, properties datei und Umgebungsvariablen.
+---
 
  1-Projekt starten: mvn clean package   Das erzeugt die Datei:  target/ProdukteJDBC-1.0-SNAPSHOT.jar
 

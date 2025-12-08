@@ -51,6 +51,12 @@
                 <artifactId>javafx-fxml</artifactId>
                 <version>${javafx.version}</version>
             </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.13.4</version>
+            <scope>test</scope>
+        </dependency>
         </dependencies>
     <build>
         <plugins>
@@ -72,7 +78,7 @@
                     <!-- Your JavaFX Application class -->
 
                     <!-- Die mainClass wird hier durch die Profile-Properties überschrieben -->
-                    <mainClass>App</mainClass>
+                    <mainClass>Fx_GUI_Classe.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>

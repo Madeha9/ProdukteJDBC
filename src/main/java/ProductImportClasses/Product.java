@@ -1,3 +1,5 @@
+package ProductImportClasses;
+
 import java.math.BigDecimal;
 
 public class Product {
@@ -51,7 +53,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "ProductImportClasses.Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +

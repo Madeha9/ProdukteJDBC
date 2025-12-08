@@ -1,3 +1,5 @@
+package ProductImportClasses;
+
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -54,12 +56,13 @@ public class ProductRepository {
                 ps.setString(4, product.getCategory());
                 ps.setBoolean(5, product.isActive());
                 ps.addBatch();
-            }
+
 
             // Batch ausführen
             ps.executeBatch();
             conn.commit();
             System.out.println("✔ Produkte erfolgreich importiert oder aktualisiert!");
+            }
         } catch (SQLException ex) {
             conn.rollback();
             System.out.println("❌ Fehler beim Importieren/Aktualisieren: " + ex.getMessage());

@@ -1,8 +1,4 @@
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Map;
-import java.util.logging.Logger;
+package ProductImportClasses;
 
 public class ProductImporterApp {
     public static void main(String[] args) {

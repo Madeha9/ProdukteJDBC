@@ -1,4 +1,4 @@
-//Startet JavaFX, lädt die FXML
+package Fx_GUI_Classe;//Startet JavaFX, lädt die FXML
 //Start klasse für GUI
 
 import javafx.application.Application;
@@ -12,7 +12,7 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainView.fxml"));
         //fenster erzeugen
         Scene scene = new Scene(loader.load());
-        stage.setTitle("Product Service");
+        stage.setTitle("ProductImportClasses.Product Service");
         stage.setScene(scene);
         stage.show();
     }

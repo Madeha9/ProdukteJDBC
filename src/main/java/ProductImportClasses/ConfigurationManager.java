@@ -1,3 +1,5 @@
+package ProductImportClasses;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -71,7 +73,7 @@ public class ConfigurationManager {
         String dbPassword = cli.getOrDefault("DB_PASSWORD", env.getOrDefault("DB_PASSWORD", props.get("DB_PASSWORD")));
 
         // Sonstige Einstellungen
-        String inputFile = cli.getOrDefault("inputFile", props.getOrDefault("inputFile", "products.json"));
+        String inputFile = cli.getOrDefault("inputFile", props.getOrDefault("inputFile", "/products.json"));
         String mode = cli.getOrDefault("mode", props.getOrDefault("mode", "list"));
         boolean onlyActive = Boolean.parseBoolean(cli.getOrDefault("onlyActive", "false"));
         BigDecimal minPrice = new BigDecimal(cli.getOrDefault("minPrice", "0"));

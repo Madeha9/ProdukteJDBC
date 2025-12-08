@@ -1,9 +1,9 @@
-import java.sql.Connection;
-import java.util.ArrayList;
+package ProductImportClasses;
+
 import java.util.List;
 
 public class ProductFormatter {
-    //Product formatierung
+    //ProductImportClasses.Product formatierung
     //Mit List verwenden, single Responsibility konzept
     public static String format(Product product) {
         return "ID=" + product.getId() +

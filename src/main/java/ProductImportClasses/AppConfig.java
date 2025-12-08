@@ -1,3 +1,5 @@
+package ProductImportClasses;
+
 import java.math.BigDecimal;
 
 public class AppConfig {

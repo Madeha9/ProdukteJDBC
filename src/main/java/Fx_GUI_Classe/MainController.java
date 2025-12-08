@@ -1,3 +1,7 @@
+package Fx_GUI_Classe;
+
+import ProductImportClasses.MakeDbConnection;
+import ProductImportClasses.Product;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;

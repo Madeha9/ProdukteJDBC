@@ -33,7 +33,7 @@ java -jar target/ProdukteJDBC-1.0-SNAPSHOT.jar \
 
 ⚙️ Konfiguration
 
-Die App lädt Konfigurationen in folgender Reihenfolge:
+Die Fx_GUI_Classe.App lädt Konfigurationen in folgender Reihenfolge:
 
 CLI > Environment Variables > app.properties > Defaults
 
@@ -55,15 +55,15 @@ Parameter	Bedeutung
 --mode=import	Produkte importieren
 🛠 Services
 Service	Beschreibung
-ImportService	Liest JSON ein, führt INSERT/UPSERT aus
-ListService	Listet Produkte mit Filtern
-ProductRepository	Reiner JDBC-Code (SQL + PreparedStatements)
-ConfigurationManager	Regelt Priorität: CLI > Env > Properties
-MakeDbConnection	Baut die DB-Verbindung sicher auf
+ProductImportClasses.ImportService	Liest JSON ein, führt INSERT/UPSERT aus
+ProductImportClasses.ListService	Listet Produkte mit Filtern
+ProductImportClasses.ProductRepository	Reiner JDBC-Code (SQL + PreparedStatements)
+ProductImportClasses.ConfigurationManager	Regelt Priorität: CLI > Env > Properties
+ProductImportClasses.MakeDbConnection	Baut die DB-Verbindung sicher auf
 
 ⚠️ Bekannte Einschränkungen / Hinweise
 
-JSON muss gültig sein und dem Product-Schema entsprechen
+JSON muss gültig sein und dem ProductImportClasses.Product-Schema entsprechen
 PostgreSQL muss erreichbar sein
 Fehler beim Insert (z. B. falscher SQL-Syntax) werden im Terminal angezeigt
 Bei fehlenden Credentials wird die Anwendung abgebrochen

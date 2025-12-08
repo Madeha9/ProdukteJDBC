@@ -1,3 +1,5 @@
+package ProductImportClasses;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -7,7 +9,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
-//JSON-Dateien einlesen und in Product-Objekte umwandeln
+//JSON-Dateien einlesen und in ProductImportClasses.Product-Objekte umwandeln
 public class JsonReader {
     //Logger, um Fehlermeldungen oder Infos auszugeben , nur für diese klasse und final
     private static final Logger logger = Logger.getLogger(JsonReader.class.getName());

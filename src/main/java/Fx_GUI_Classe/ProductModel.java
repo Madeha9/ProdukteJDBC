@@ -1,4 +1,4 @@
-//Datenmodell (JavaFX Properties)
+package Fx_GUI_Classe;//Datenmodell (JavaFX Properties)
 
 import javafx.beans.property.*;
 

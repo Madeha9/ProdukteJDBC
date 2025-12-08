@@ -5,7 +5,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="MainController">
+            fx:controller="Fx_GUI_Classe.MainController">
 
     <!-- ======= TOP FILTER / BUTTON BAR ======= -->
     <top>

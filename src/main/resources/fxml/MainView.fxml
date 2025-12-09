@@ -4,23 +4,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25"
             fx:controller="Fx_GUI_Classe.MainController">
 
     <!-- ======= TOP FILTER / BUTTON BAR ======= -->
     <top>
         <HBox spacing="10">
             <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
+                <Insets bottom="10" left="10" right="10" top="10"/>
             </padding>
-            <Label text="Min Price:"/>
+            <Label text="Min Price:" textFill="#e3cb1e"/>
             <TextField fx:id="minPriceField" promptText="z.B. 50"/>
 
             <CheckBox fx:id="onlyActiveCheck" text="Only Active"/>
 
             <!--            <Button text="View All" onAction="#findAllAction"/>-->
-            <Button fx:id="findAll" text="Find All" onAction="#findAllAction"/>
+            <Button fx:id="findAll" onAction="#findAllAction" text="Find All" textFill="#3ec660"/>
+            <Button onAction="#findAllAction" text="importfile" textFill="#628dd1"/>
+            <Button onAction="#findAllAction" text="AddProduct" textFill="#d37272"/>
+            <Button onAction="#findAllAction" text="insertAll" textFill="#c937ae"/>
 
 
             <!-- Rechts block -->
@@ -36,11 +38,11 @@
         <TableView fx:id="tableProducts">
             <columns>
 
-                <TableColumn fx:id="colId" text="ID" prefWidth="70"/>
-                <TableColumn fx:id="colName" text="Name" prefWidth="200"/>
-                <TableColumn fx:id="colPrice" text="Price" prefWidth="100"/>
-                <TableColumn fx:id="colCategory" text="Category" prefWidth="150"/>
-                <TableColumn fx:id="colActive" text="Active" prefWidth="80"/>
+                <TableColumn fx:id="colId" prefWidth="70" text="ID"/>
+                <TableColumn fx:id="colName" prefWidth="200" text="Name"/>
+                <TableColumn fx:id="colPrice" prefWidth="100" text="Price"/>
+                <TableColumn fx:id="colCategory" prefWidth="150" text="Category"/>
+                <TableColumn fx:id="colActive" prefWidth="80" text="Active"/>
             </columns>
         </TableView>
     </center>

@@ -1,5 +1,6 @@
 package Fx_GUI_Classe;//Datenmodell (JavaFX Properties)
 
+import ProductImportClasses.Product;
 import javafx.beans.property.*;
 
 import java.math.BigDecimal;
@@ -17,6 +18,14 @@ public class ProductModel {
         this.category.set(category);
         this.price.set(price);
         this.active.set(active);
+    }
+
+    public ProductModel(Product p) {
+        this.id.set(p.getId());
+        this.name.set(p.getName());
+        this.category.set(p.getCategory());
+        this.price.set(p.getPrice());
+        this.active.set(p.isActive());
     }
 
     // ===== Getter / Setter =====

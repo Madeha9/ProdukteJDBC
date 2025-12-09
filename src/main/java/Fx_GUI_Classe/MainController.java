@@ -16,6 +16,7 @@ import java.util.List;
 
 public class MainController {
 
+
     @FXML
     TableColumn<ProductModel, BigDecimal> colPrice;
     @FXML
@@ -26,10 +27,7 @@ public class MainController {
     private TableColumn<ProductModel, String> colCategory;
     @FXML
     private TableColumn<ProductModel, Boolean> colActive;
-    @FXML
-    //Produckte Tabelle erstellen
-    //die Tabelle hat Produkt objekte  von der klasse objelte //Generic dattype
-    private TableView<Product> tableProducts;
+    ProductService productService;
     //    @FXML
     private Button btnAddProduct;
     @FXML
@@ -42,13 +40,19 @@ public class MainController {
     private Button btnFindActive;
 
     private MakeDbConnection conn;
-    private ProductService productService = new ProductService();
+    @FXML
+    //Produckte Tabelle erstellen
+    //die Tabelle hat Produkt objekte  von der klasse objelte //Generic dattype
+    private TableView<ProductModel> tableProducts;
 
-    // Setter Injection
-    public void setServices(MakeDbConnection conn, ProductService productService) {
-        this.conn = conn;
-        this.productService = productService;
-    }
+//    private ProductService productService = new ProductService();
+
+//    // Setter Injection
+//    public void setServices(MakeDbConnection conn, ProductService productService) {
+//        this.conn = conn;
+
+    /// /        this.productService = productService;
+//    }
 
     @FXML
     public void initialize() {
@@ -58,6 +62,7 @@ public class MainController {
         colCategory.setCellValueFactory(c -> c.getValue().categoryProperty());
         colActive.setCellValueFactory(c -> c.getValue().activeProperty().asObject());
         colPrice.setCellValueFactory(c -> c.getValue().priceProperty());
+        productService = new ProductService(new String[0]);
 
         // Standardmäßig alle Produkte laden
         findAll.setDisable(false);
@@ -75,7 +80,10 @@ public class MainController {
 //    }
 
     private void updateTable(List<Product> products) {
-        ObservableList<Product> list = FXCollections.observableArrayList(products);
+        ObservableList<ProductModel> list = FXCollections.observableArrayList();
+        for (Product p : products) {
+            list.add(new ProductModel(p));
+        }
         tableProducts.setItems(list);
     }
 }

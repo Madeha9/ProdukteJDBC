@@ -3,6 +3,7 @@ package Fx_GUI_Classe;//Startet JavaFX, lädt die FXML
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -17,7 +18,7 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         //Java fx starten
         launch(args);
     }

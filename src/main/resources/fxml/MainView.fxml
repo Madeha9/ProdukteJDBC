@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Fx_GUI_Classe.MainController">
@@ -18,7 +19,9 @@
 
             <CheckBox fx:id="onlyActiveCheck" text="Only Active"/>
 
-            <Button text="Filter anwenden" onAction="#onViewAll"/>
+            <!--            <Button text="View All" onAction="#findAllAction"/>-->
+            <Button fx:id="findAll" text="Find All" onAction="#findAllAction"/>
+
 
             <!-- Rechts block -->
             <!--            <HBox spacing="10" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">-->
@@ -38,9 +41,7 @@
                 <TableColumn fx:id="colPrice" text="Price" prefWidth="100"/>
                 <TableColumn fx:id="colCategory" text="Category" prefWidth="150"/>
                 <TableColumn fx:id="colActive" text="Active" prefWidth="80"/>
-
             </columns>
         </TableView>
     </center>
-
 </BorderPane>

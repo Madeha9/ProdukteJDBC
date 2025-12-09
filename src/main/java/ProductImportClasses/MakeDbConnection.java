@@ -12,7 +12,6 @@ public class MakeDbConnection {
     public static Connection getConnection(AppConfig config) throws SQLException {
         if (config.dbUrl == null || config.dbUser == null || config.dbPassword == null) {
             logger.severe("Datenbank-Konfiguration fehlt!");
-
             throw new RuntimeException("DB-Konfiguration fehlt!" + " Bitte DB_URL, DB_USER und DB_PASSWORD prüfen.");
         }
         logger.info("Verbindung zur Datenbank wird aufgebaut...");

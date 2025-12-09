@@ -1,6 +1,5 @@
 package ProductImportClasses;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -11,6 +10,7 @@ public class ConfigurationManager {
 
     private final String propertiesFilePath;
 
+    //
     public ConfigurationManager(String propertiesFilePath) {
         this.propertiesFilePath = propertiesFilePath;
     }
@@ -19,19 +19,26 @@ public class ConfigurationManager {
     private Map<String, String> loadProperties() {
         Map<String, String> map = new HashMap<>();
         Properties props = new Properties();
+        try (var is = getClass().getClassLoader().getResourceAsStream("app.properties")) {
+            if (is == null) {
+                System.out.println("❌ Properties-Datei nicht gefunden: ");
+                return map;
+            }
 
-        try (FileInputStream fis = new FileInputStream(propertiesFilePath)) {
-            props.load(fis);
+            props.load(is);
+
             for (String key : props.stringPropertyNames()) {
                 map.put(key, props.getProperty(key));
-//                System.out.println("Properties Map: " + map);
+//                    System.out.println(key + " : " + props.getProperty(key));
             }
+
         } catch (IOException e) {
             System.out.println("❌ Fehler beim Laden der Properties: " + e.getMessage());
         }
 
         return map;
     }
+
 
     // Umgebungsvariablen laden
     private Map<String, String> loadEnv() {
@@ -64,13 +71,19 @@ public class ConfigurationManager {
     // Alles zusammenführen: CLI > Env > Properties > Defaults
     public AppConfig load(String[] args) {
         Map<String, String> props = loadProperties();
+//        System.out.println(loadProperties());
         Map<String, String> env = loadEnv();
         Map<String, String> cli = parseArgs(args);
 
         // Datenbank-Konfiguration
-        String dbUrl = cli.getOrDefault("DB_URL", env.getOrDefault("DB_URL", props.get("DB_URL")));
-        String dbUser = cli.getOrDefault("DB_USER", env.getOrDefault("DB_USER", props.get("DB_USER")));
-        String dbPassword = cli.getOrDefault("DB_PASSWORD", env.getOrDefault("DB_PASSWORD", props.get("DB_PASSWORD")));
+
+        String dbUrl = props.get("DB_URL");
+//                cli.getOrDefault("DB_URL", env.getOrDefault("DB_URL", props.get("DB_URL")));
+
+        String dbUser = props.get("DB_USER");
+//                cli.getOrDefault("DB_USER", env.getOrDefault("DB_USER", props.get("DB_USER")));
+        String dbPassword = props.get("DB_PASSWORD");
+//                cli.getOrDefault("DB_PASSWORD", env.getOrDefault("DB_PASSWORD", props.get("DB_PASSWORD")));
 
         // Sonstige Einstellungen
         String inputFile = cli.getOrDefault("inputFile", props.getOrDefault("inputFile", "/products.json"));

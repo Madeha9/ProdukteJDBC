@@ -11,10 +11,10 @@ import java.util.List;
 
 //to take care of the db connection and Json files
 public class ProductService {
-    private final ProductRepository productRepository;
+    private final ProductRepository productRepository = null;
 
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductService() {
+//        this.productRepository = productRepository;
 //        this.listService = new ProductImportClasses.ListService(); // nutzt intern ProductImportClasses.ProductRepository
     }
 

@@ -31,19 +31,18 @@ public class MainController {
     //die Tabelle hat Produkt objekte  von der klasse objelte //Generic dattype
     private TableView<Product> tableProducts;
     //    @FXML
-//    private  Button btnAddProduct;
-//    @FXML
-//    private  Button  insertAll;
-//    @FXML
-//    private  Button  importfile;
-//    @FXML
+    private Button btnAddProduct;
+    @FXML
+    private Button insertAll;
+    @FXML
+    private Button importfile;
     @FXML
     private Button findAll;
-//    @FXML
-//    private  Button  btnFindActive;
+    @FXML
+    private Button btnFindActive;
 
     private MakeDbConnection conn;
-    private ProductService productService;
+    private ProductService productService = new ProductService();
 
     // Setter Injection
     public void setServices(MakeDbConnection conn, ProductService productService) {
@@ -69,7 +68,6 @@ public class MainController {
         List<Product> product = productService.getAllProducts();
         updateTable(product);
     }
-
 //    @FXML
 //    private void onViewActive() {
 //        List<Product> activeProducts = productService.getActiveProducts();

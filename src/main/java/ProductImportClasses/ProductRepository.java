@@ -58,10 +58,10 @@ public class ProductRepository {
                 ps.addBatch();
 
 
-            // Batch ausführen
-            ps.executeBatch();
-            conn.commit();
-            System.out.println("✔ Produkte erfolgreich importiert oder aktualisiert!");
+                // Batch ausführen
+                ps.executeBatch();
+                conn.commit();
+                System.out.println("✔ Produkte erfolgreich importiert oder aktualisiert!");
             }
         } catch (SQLException ex) {
             conn.rollback();

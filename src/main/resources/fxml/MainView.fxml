@@ -20,7 +20,7 @@
 
             <!--            <Button text="View All" onAction="#findAllAction"/>-->
             <Button fx:id="findAll" onAction="#findAllAction" text="Find All" textFill="#3ec660"/>
-            <Button onAction="#findAllAction" text="importfile" textFill="#628dd1"/>
+            <Button fx:id="importfile" onAction="#importfile" text="impor tfile" textFill="#628dd1"/>
             <Button onAction="#findAllAction" text="AddProduct" textFill="#d37272"/>
             <Button onAction="#findAllAction" text="insertAll" textFill="#c937ae"/>
 

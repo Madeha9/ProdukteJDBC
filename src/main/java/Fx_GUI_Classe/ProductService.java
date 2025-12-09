@@ -31,4 +31,13 @@ public class ProductService {
             throw new RuntimeException(e);
         }
     }
+
+    public void importjson(String inputfilepath) {
+        Runnable importer = () -> {
+            ImportService service = new ImportService();
+            service.execute(config);
+        };
+        Thread loadfile = new Thread(importer);
+        loadfile.start();
+    }
 }

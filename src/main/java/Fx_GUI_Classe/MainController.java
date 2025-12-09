@@ -19,6 +19,7 @@ public class MainController {
 
     @FXML
     TableColumn<ProductModel, BigDecimal> colPrice;
+    ProductService productService;
     @FXML
     private TableColumn<ProductModel, Long> colId;
     @FXML
@@ -27,7 +28,6 @@ public class MainController {
     private TableColumn<ProductModel, String> colCategory;
     @FXML
     private TableColumn<ProductModel, Boolean> colActive;
-    ProductService productService;
     //    @FXML
     private Button btnAddProduct;
     @FXML
@@ -45,15 +45,9 @@ public class MainController {
     //die Tabelle hat Produkt objekte  von der klasse objelte //Generic dattype
     private TableView<ProductModel> tableProducts;
 
-//    private ProductService productService = new ProductService();
-
-//    // Setter Injection
-//    public void setServices(MakeDbConnection conn, ProductService productService) {
-//        this.conn = conn;
 
     /// /        this.productService = productService;
 //    }
-
     @FXML
     public void initialize() {
         // TableView Spalten verbinden
@@ -66,12 +60,23 @@ public class MainController {
 
         // Standardmäßig alle Produkte laden
         findAll.setDisable(false);
+        importfile.setDisable(false);
     }
 
     @FXML
     private void findAllAction(ActionEvent event) throws SQLException {
         List<Product> product = productService.getAllProducts();
         updateTable(product);
+    }
+
+    @FXML
+    private void importfile(ActionEvent event) throws SQLException {
+        System.out.println("Json Datei importieren");
+        productService.importjson("/");
+        System.out.println("Json Datei wird hochgeladen");
+
+
+        //Asynchron starten
     }
 //    @FXML
 //    private void onViewActive() {

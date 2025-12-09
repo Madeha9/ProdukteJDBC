@@ -1,9 +1,9 @@
 package ProductImportClasses;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-import java.math.BigDecimal;
 
 public class ListService implements AppService {
 

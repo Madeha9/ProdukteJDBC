@@ -12,14 +12,6 @@ public class ProductModel {
     private final ObjectProperty<BigDecimal> price = new SimpleObjectProperty<>();
     private final BooleanProperty active = new SimpleBooleanProperty();
 
-    public ProductModel(long id, String name, String category, BigDecimal price, boolean active) {
-        this.id.set(id);
-        this.name.set(name);
-        this.category.set(category);
-        this.price.set(price);
-        this.active.set(active);
-    }
-
     public ProductModel(Product p) {
         this.id.set(p.getId());
         this.name.set(p.getName());

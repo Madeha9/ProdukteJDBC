@@ -20,9 +20,8 @@
             <CheckBox fx:id="onlyActiveCheck" onAction="#onViewActive" text="Only Active"/>
 
             <Button fx:id="findAll" onAction="#findAllAction" text="Find All" textFill="#3ec660"/>
-            <Button fx:id="importfile" onAction="#importfile" text="impor tfile" textFill="#628dd1"/>
+            <Button fx:id="importfile" onAction="#importfile" text="import file" textFill="#628dd1"/>
             <Button onAction="#findAllAction" text="Add Product" textFill="#d37272"/>
-            <Button onAction="#findAllAction" text="Choose a file " textFill="#c937ae"/>
             <TextField fx:id="textfilePath" promptText="bitt wahlen die pfad" editable="false"/>
             <Button fx:id="chooseFile" onAction="#choosefile" text="Choose Json file"/>
         </HBox>

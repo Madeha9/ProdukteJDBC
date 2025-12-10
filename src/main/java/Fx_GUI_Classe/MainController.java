@@ -87,6 +87,7 @@ public class MainController {
 
     @FXML
     private void importfile(ActionEvent event) throws SQLException {
+        System.out.println("Button geklickt!");
         String path = textfilePath.getText();
         if (path.isEmpty()) {
             System.out.println("Bitte eine Datei auswahlen");

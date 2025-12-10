@@ -43,10 +43,13 @@ public class ProductService {
 
     public void importjson(String inputfilepath) {
         Runnable importer = () -> {
-            ImportService service = new ImportService();
+//            ImportService service = new ImportService();
+            AppService service;
+            service = new ImportService();
             service.execute(config);
         };
         Thread loadfile = new Thread(importer);
         loadfile.start();
+
     }
 }

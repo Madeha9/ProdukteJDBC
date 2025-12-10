@@ -9,14 +9,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
 
 public class MainController {
-
-
     @FXML
     TableColumn<ProductModel, BigDecimal> colPrice;
     ProductService productService;
@@ -28,7 +29,7 @@ public class MainController {
     private TableColumn<ProductModel, String> colCategory;
     @FXML
     private TableColumn<ProductModel, Boolean> colActive;
-    //    @FXML
+    @FXML
     private Button btnAddProduct;
     @FXML
     private Button insertAll;
@@ -37,17 +38,32 @@ public class MainController {
     @FXML
     private Button findAll;
     @FXML
+    private Button chooseFile;
+    @FXML
     private Button btnFindActive;
-
     private MakeDbConnection conn;
     @FXML
+    private TableView<ProductModel> tableProducts;
     //Produckte Tabelle erstellen
     //die Tabelle hat Produkt objekte  von der klasse objelte //Generic dattype
-    private TableView<ProductModel> tableProducts;
+    @FXML
+    private TextField textfilePath;
 
+    //so das, der Benuzer kann ein Datei auswahlen
+    @FXML
+    private void choosefile(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Json File");
+        //nur json Datei kann importiert werden , der Benuzer sieht nur .json datei zu wahlen
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter
+                ("JSON file", "*.json"));
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            textfilePath.setText(file.getAbsolutePath());
+        }
 
-    /// /        this.productService = productService;
-//    }
+    }
+
     @FXML
     public void initialize() {
         // TableView Spalten verbinden
@@ -60,7 +76,7 @@ public class MainController {
 
         // Standardmäßig alle Produkte laden
         findAll.setDisable(false);
-        importfile.setDisable(false);
+//        importfile.setDisable(false);
     }
 
     @FXML
@@ -71,18 +87,25 @@ public class MainController {
 
     @FXML
     private void importfile(ActionEvent event) throws SQLException {
-        System.out.println("Json Datei importieren");
-        productService.importjson("/");
+        String path = textfilePath.getText();
+        if (path.isEmpty()) {
+            System.out.println("Bitte eine Datei auswahlen");
+            return;
+        }
+
+        System.out.println("Json Datei importieren" + path);
+        productService.importjson(path);
         System.out.println("Json Datei wird hochgeladen");
 
 
         //Asynchron starten
     }
-//    @FXML
-//    private void onViewActive() {
-//        List<Product> activeProducts = productService.getActiveProducts();
-//        updateTable(activeProducts);
-//    }
+
+    @FXML
+    private void onViewActive(ActionEvent event) throws SQLException {
+        List<Product> activeProducts = productService.getActiveProducts();
+        updateTable(activeProducts);
+    }
 
     private void updateTable(List<Product> products) {
         ObservableList<ProductModel> list = FXCollections.observableArrayList();
@@ -91,4 +114,5 @@ public class MainController {
         }
         tableProducts.setItems(list);
     }
+
 }

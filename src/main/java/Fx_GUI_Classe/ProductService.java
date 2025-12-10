@@ -32,6 +32,15 @@ public class ProductService {
         }
     }
 
+    public List<Product> getActiveProducts() {
+        try {
+            return productRepository.findActive(conn);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public void importjson(String inputfilepath) {
         Runnable importer = () -> {
             ImportService service = new ImportService();
